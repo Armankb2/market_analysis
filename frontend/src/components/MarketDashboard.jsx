@@ -20,7 +20,10 @@ import {
     BarChart3,
 } from "lucide-react";
 
-const API = "http://localhost:5001/api/dashboard";
+const API_BASE =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+
+const API = `${API_BASE}/api/dashboard`;
 
 const formatPrice = (value) => {
     if (value == null || !Number.isFinite(Number(value))) return "—";
