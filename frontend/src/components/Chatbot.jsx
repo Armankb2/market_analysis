@@ -38,7 +38,10 @@ const Chatbot = ({ theme, toggleTheme }) => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('/api/chat', {
+      const API_BASE =
+        import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+
+      const response = await axios.post(`${API_BASE}/chat`, {
         message: userMessage,
         history: messages
       });
